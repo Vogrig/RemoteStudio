@@ -1,0 +1,28 @@
+{
+  "name": "RemoteStudio",
+  "version": "1.0.0",
+  "description": "Controlling analog devices from the web",
+  "dependencies": {
+    "express": "2.5.0",
+    "requirejs": ">=1.0.0",
+    "socket.io": "*",
+    "node-osc": "*",
+    "underscore": ">=1.2.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "osc",
+    "socket",
+    "websockets"
+  ],
+  "engines": {
+      "node": "0.10.31"
+  },
+  "author": {
+    "name": "Andrea Vogrig",
+    "email": "vogrig.andrea@gmail.com",
+    "web": "http://andreavogrig.com"
+  }
+}

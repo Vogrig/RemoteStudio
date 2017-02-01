@@ -1,0 +1,317 @@
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>  
+  	<script src="/lib/jquery.knob.min.js"></script>
+    <script data-main="app" src="/lib/require.js"></script>
+    <!--<script type="text/javascript" src="app.js"></script>-->
+	<title>Remote Studio | JS</title>
+  </head>
+  
+
+  <body>
+
+  	 <div class="info">
+  <!--<audio src="http://10.1.15.250:8100/listen.m3u" controls="controls" style="float:right; top:0px;" autoplay> </audio>-->
+
+   <!--  <audio style="float:right;" autoplay="false" autobuffer="false" controls="true" src="http://10.1.15.250:8100/listen"/> -->
+	  <p class="inf">Ip address: <span class="number">10.1.60.68</span></p>
+	  <p class="inf">Listening port: <span class="number">10001</span></p>
+	  <p class="inf">Current users: <span id="Nusers"class="number"></span></p>
+	<!--  <p class="inf" id="status">Message from devices : </p>-->
+	</div>
+    <div id="osc" class="ui-body-d ui-content" style="margin:auto margin-bottom: 13px;">
+     <div class="vfug1">
+      <div class="nob-cont">
+        <div class="cp">
+          CV 1
+          <input id="v0" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+        </div>
+       <label>
+          <select class="setting" id="r0" name="r0" >
+            <option value="0" selected="selected" data-mini="true" data-img-src="img/adnan.png">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+        <label>
+          <select class="setting"  id="r1" name ="r1" >
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+      
+      <div class="vfug2">
+      <div class="nob-cont">
+        <div class="cp">
+          CV 2
+          <input id="v1" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+        </div>
+         <label>
+          <select class="setting" id="r2" >
+            <option value="0" selected data-mini="true">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r3" >
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+
+      <div class="vfug3">
+      <div class="nob-cont">
+        <div class="cp">
+          CV 3
+          <input id="v2" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+        </div>
+        <label>
+          <select class="setting" id="r4">
+            <option value="0" selected data-mini="true">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r5" >
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+
+      <div class="vfug4">
+      <div class="nob-cont">
+        <div class="cp">
+          CV 4
+          <input id="v3" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+        </div>
+      <label>
+          <select class="setting" id="r6">
+            <option value="0" selected data-mini="true">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r7" >
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+
+      <div class="vfug5">
+      <div class="nob-cont">
+        <div class="cp">
+            CV 5
+           <input id="v4" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+          </div>
+         <label>
+          <select class="setting" id="r8" >
+            <option value="0" selected data-mini="true">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r9">
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+
+      <div class="vfug6">
+      <div class="nob-cont">
+         <div class="cp">
+            CV 6
+            <input id="v5" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+          </div>
+          <label>
+          <select class="setting" id="r10">
+            <option value="0" selected data-mini="true">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r11" >
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+   
+      <div class="vfug7">
+      <div class="nob-cont">
+          <div class="cp">
+            CV 7
+            <input id="v6" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+          </div>
+          <label>
+          <select class="setting" id="r12">
+            <option value="0" selected data-mini="true">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r13" >
+            <option value="0" selected data-mini="true">Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+
+      <div class="vfug8">
+      <div class="nob-cont">
+         <div class="cp">
+            CV 8
+            <input id="v7" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+          </div>
+        <label>
+          <select class="setting" id="r14" >
+            <option value="0">10hz</option>
+            <option value="1">100hz</option>
+            <option value="2">1khz</option>
+            <option value="3">10khz</option>
+          </select>
+        </label>
+          <label>
+          <select class="setting" id="r15" >
+            <option value="0" >Pulse</option>
+            <option value="1" >Block</option>
+            <option value="2" >Square</option>
+            <option value="3" >Sine</option>
+          </select>
+        </label>
+        </div>
+      </div>
+    </div> <!--  END OSC  -->
+
+   <div class="cv-controls">
+   		<div class="cv-row">
+	      <div class="cp1">
+	        CV 9
+	        <input id="v8" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	      <div class="cp1">
+	        CV 10
+	        <input id="v9" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	      <div class="cp1">
+	        CV 11
+	        <input id="v10" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	      <div class="cp1">
+	        CV 12
+	        <input id="v11" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	    </div>
+	    <div class="cv-row">
+	      <div class="cp1">
+	        CV 13
+	        <input id="v12" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	      <div class="cp1">
+	        CV 14
+	        <input id="v13" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	      <div class="cp1">
+	        CV 15
+	        <input id="v14" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+	      <div class="cp1">
+	        CV 16
+	        <input id="v15" data-width="50" data-displayInput=false data-role="none" class="knob knob-n" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#47a540" data-rotation="clockwise" value="0">
+	      </div>
+    	</div>
+  	</div><!--  END CV CONTROLS  -->
+
+<!-- 
+         <div id="master" style="float:left; width:50px; padding-top:40px;"> 
+           <input id="g0"  onchange="sendG(this.id,this.value);" data-role="none" type="range" min="0" max="4095" value="0" class="vertical" orient="vertical">
+          <input id="g1" onchange="sendG(this.id,this.value);" data-role="none" type="range" min="0" max="4095" value="0" class="vertical" orient="vertical">
+        </div>
+ -->
+
+	<div style="width: 319px; float: left;    margin-top: 6px;">
+	  <span id="vertical-lr">
+	    CV 1<br />
+	    CV 2<br />
+	    CV 3<br />
+	    CV 4<br />
+	    CV 5<br />
+	    CV 6<br />
+	    CV 7<br />
+	    CV 8<br />
+	    CV 9<br />
+	    CV 10<br />
+	    CV 11<br />
+	    CV 12<br />
+	    CV 13<br />
+	    CV 14<br />
+	    CV 15<br />
+	    CV 16<br />
+	  </span>
+	  <canvas id="canvas" width="240px" height="250px" style="margin-left: 36px;"></canvas>
+	 <span id="sideways-lr">
+	    CV 1<br />
+	    CV 2<br />
+	    CV 3<br />
+	    CV 4<br />
+	    CV 5<br />
+	    CV 6<br />
+	    CV 7<br />
+	    CV 8<br />
+	    CV 9<br />
+	    CV 10<br />
+	    CV 11<br />
+	    CV 12<br />
+	    CV 13<br />
+	    CV 14<br />
+	    CV 15<br />
+	    CV 16<br />
+	  </span>
+	  <canvas id="seq" width="240px" height="20px" style="margin-left: 36px;"></canvas>
+	</div>
+
+  </body>
+</html>
