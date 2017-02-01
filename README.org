@@ -1,0 +1,31 @@
+* RemoteStudio
+
+RemoteStudio is a web application that can be controlled by multiple users at the same time. Web Sockets are used to exchange data between client and server side. The server side is responsible of the OSC communication, to avoid UPD connection on the client web page.
+
+* Prerequisites
+
+- [[http://nodejs.org][node.js]]
+- [[http://socket.io][socket.io]]
+- [[https://github.com/MylesBorins/node-osc][node-osc]]
+
+* Installation
+
+First of all, download and install nodejs from http://nodejs.org, then:
+
+#+begin_src sh
+$ git clone https://github.com/Vogrig/RemoteStudio.git
+$ cd RemoteStudio-master/
+$ npm install
+#+end_src
+
+* Using
+
+Run the app on your machine (localhost):
+
+#+begin_src sh
+$ cd RemoteStudio-master/
+$ node server.js
+#+end_src
+
+
+Now you can run your favorite web browser app and point it to "localhost:8080"
