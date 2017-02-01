@@ -27,5 +27,10 @@ $ cd RemoteStudio-master/
 $ node server.js
 #+end_src
 
-
 Now you can run your favorite web browser app and point it to "localhost:8080"
+
+* Optimize
+#+begin_src sh
+$ cd RemoteStudio-master/
+$ node tools/r.js -o tools/build.js
+#+end_src
