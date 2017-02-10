@@ -1,6 +1,6 @@
 * RemoteStudio
 
-RemoteStudio is a web application that can be controlled by multiple users at the same time. Web Sockets are used to exchange data between client and server. The server side is responsible of the OSC communication, to avoid UDP connection on the client web page.
+RemoteStudio is a web application that allow multiple users to simultaneously control electronic equipment. Web Sockets are used to exchange data between client and server. In order to avoid UDP connection on the client web page, the server side is responsible of the OSC communication.
 
 * Prerequisites
 
